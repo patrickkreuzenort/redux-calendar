@@ -1,4 +1,5 @@
 import { GithubRepoFormState } from 'app/containers/GithubRepoForm/types';
+import { CalendarState } from 'app/containers/CalendarPage/types';
 import { ThemeState } from 'styles/theme/types';
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
@@ -11,5 +12,6 @@ import { ThemeState } from 'styles/theme/types';
 export interface RootState {
   theme?: ThemeState;
   githubRepoForm?: GithubRepoFormState;
+  calendar?: CalendarState;
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

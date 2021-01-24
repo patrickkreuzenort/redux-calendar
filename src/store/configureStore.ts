@@ -1,6 +1,9 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware, Action } from '@reduxjs/toolkit';
 import { createInjectorsEnhancer } from 'redux-injectors';
 import createSagaMiddleware from 'redux-saga';
+
+import { ThunkAction } from 'redux-thunk';
+import { RootState } from 'types';
 
 import { createReducer } from './reducers';
 
@@ -20,8 +23,12 @@ export function configureAppStore() {
   ];
 
   const store = configureStore({
+    // Initially we don't have any injectedReducers, so returning identity function to avoid the error
     reducer: createReducer(),
+    // we do not need to apply thunk middleware, because it is included in getDefaultMiddleware()
     middleware: [...getDefaultMiddleware(), ...middlewares],
+    // optionally = middleware: getDefaultMiddleware().concat(middlewares) | the second middleware definition option
+    /*It is EVEN (!) preferrable to use the chainable .concat(...) and .prepend(...) methods of the returned MiddlewareArray instead of the array spread operator, as the latter can lose valuable type information under some circumstances.*/
     devTools:
       /* istanbul ignore next line */
       process.env.NODE_ENV !== 'production' ||
@@ -31,3 +38,6 @@ export function configureAppStore() {
 
   return store;
 }
+
+export type Store = ReturnType<typeof configureAppStore>;
+export type AppThunk = ThunkAction<void, RootState, unknown, Action<string>>;

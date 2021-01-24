@@ -13,6 +13,8 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from '../styles/global-styles';
 
 import { HomePage } from './containers/HomePage/Loadable';
+import { Calendar } from './containers/CalendarPage/Loadable';
+
 import { NotFoundPage } from './containers/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
 
@@ -21,15 +23,16 @@ export function App() {
   return (
     <BrowserRouter>
       <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
+        titleTemplate="%s - Redux Calendar"
+        defaultTitle="Redux Calendar"
         htmlAttributes={{ lang: i18n.language }}
       >
-        <meta name="description" content="A React Boilerplate application" />
+        <meta name="description" content="Redux Calendar" />
       </Helmet>
 
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
+        <Route path={process.env.PUBLIC_URL + '/calendar'} component={Calendar} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

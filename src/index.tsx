@@ -40,6 +40,10 @@ openSansObserver.load().then(() => {
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
+// "hooks" APIs give function components the ability to use local component state, execute side effects, and more.
+//  React Redux now offers a set of hook APIs as an alternative to the existing connect() Higher Order Component. These APIs allow you to subscribe to the Redux store and dispatch actions, without having to wrap your components in connect().
+//  As with connect(), you should start by wrapping your entire application in a <Provider> component to make the store available throughout the component tree:
+
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>

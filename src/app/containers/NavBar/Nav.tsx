@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components/macro';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
 import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
@@ -23,6 +25,9 @@ export function Nav() {
       >
         <GithubIcon />
         Github
+      </Item>
+      <Item>
+        <Link to="/calendar">Calendar</Link>
       </Item>
     </Wrapper>
   );

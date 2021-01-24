@@ -8,12 +8,14 @@ import { RepoItem } from './RepoItem';
 import { TextButton } from './components/TextButton';
 import { sliceKey, reducer, actions } from './slice';
 import { githubRepoFormSaga } from './saga';
+
 import {
   selectUsername,
   selectRepos,
   selectLoading,
   selectError,
 } from './selectors';
+
 import { LoadingIndicator } from 'app/components/LoadingIndicator';
 import { RepoErrorType } from './types';
 
@@ -29,6 +31,8 @@ export function GithubRepoForm() {
   const dispatch = useDispatch();
 
   const onChangeUsername = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    
+    // here a normal actions are dispatched
     dispatch(actions.changeUsername(evt.currentTarget.value));
     dispatch(actions.loadRepos());
   };
