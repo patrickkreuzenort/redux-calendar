@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
-    background-color: ${p => p.theme.background};
+    background-color: #222222;
   }
 
   body.fontLoaded {
@@ -24,6 +24,15 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.5em;
   }
 
+  h2, span {
+    color: white;
+    font-size: 18px;
+  }
+
+  td {
+    background-color: #141111;
+  }
+
   input, select, button {
     font-family: inherit;
     font-size: inherit;
@@ -32,5 +41,9 @@ export const GlobalStyle = createGlobalStyle`
   .icon {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .today {
+    background-color: #003d66;
   }
 `;

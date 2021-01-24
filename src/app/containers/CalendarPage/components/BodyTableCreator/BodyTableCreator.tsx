@@ -19,12 +19,13 @@ export function BodyTableCreator(props: Row) : JSX.Element {
 
 const Td = styled.td`
 
-    background-color: #292F33;
     height: 50px;
     width: 140px;
     color: white;
     border-radius: 5px;
     border: 2px solid #222222;
+    user-select: none;
+
 `;
 
 const Tr = styled.tr`

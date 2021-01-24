@@ -7,10 +7,10 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
+        <title>Home - React Redux Calendar</title>
         <meta
           name="description"
-          content="A React Boilerplate application homepage"
+          content="A React Redux Calendar made for mass"
         />
       </Helmet>
       <NavBar />

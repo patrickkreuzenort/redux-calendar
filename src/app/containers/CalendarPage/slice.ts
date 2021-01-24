@@ -2,6 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 // Importing from `utils` makes them more type-safe ✅
 import { createSlice } from 'utils/@reduxjs/toolkit';
 import { CalendarState } from './types';
+import { RootState } from 'types';
 import { AppThunk } from 'store/configureStore';
 
 // those functions are for year manipulation
@@ -13,10 +14,8 @@ import { monthDaysAmount } from './functions/monthDaysAmount';
 // this function returns the amount of days in given month
 import { firstDayReturner } from './functions/firstDayReturner';
 // this function returns the amount of days in given month
-import { lastingDaysInitialise } from './functions/lastingDaysInitialise';
 // this function returns the amount of days in given month
 import { rowsAmountReturner } from './functions/rowsAmountReturner';
-import { RootState } from 'types';
 
 // The initial state of the Calendar container
 export const initialState: CalendarState = {
@@ -229,6 +228,7 @@ export const insertAllRemainingCells = (): AppThunk => {
         startingDay++;
         } 
     }
+
     dispatch(rowsAmountReturnerFellow());
   }
 }
@@ -262,3 +262,34 @@ export const rowsAmountReturnerFellow = (): AppThunk => {
 }
 
 // specify number is a function to highlight the current day
+export const specifyNumber = () : AppThunk => {
+  return (dispatch,getState) => {
+
+    // first part = clear existing data:
+    const state = getState();
+    let month = new Date().getMonth() + 1;
+    if (state.calendar!.month !== month) {
+      let targets_existing = document.getElementsByClassName('today');
+      if (targets_existing.length) {
+        for (const item of <any>targets_existing) {
+          item.classList.remove('today');
+        }
+      }
+      return;
+    }
+    // calendar is cleared
+
+    // second part = specify the current day
+    let targets = document.getElementsByClassName('contains_clickable_data');
+    if (targets.length) {
+      for (const item of <any>targets) {
+        // apply class 'today'
+        if (Number.parseInt(item.innerHTML) === new Date().getDate()) {
+          item.classList.add('today');
+          console.log('today class added');
+        }
+      }
+    }
+
+  }
+} 

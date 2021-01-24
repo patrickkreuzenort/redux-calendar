@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
 import styled from 'styled-components/macro';
 import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
@@ -9,7 +8,14 @@ export function Nav() {
   return (
     <Wrapper>
       <Item
-        href="https://cansahin.gitbook.io/react-boilerplate-cra-template/"
+        href={process.env.PUBLIC_URL  + '/calendar'}
+        title="Calendar Page"
+        rel="noopener noreferrer"
+      >
+        Calendar
+      </Item>
+      <Item
+        href="https://github.com/patrickkreuzenort/redux-calendar/tree/master"
         target="_blank"
         title="Documentation Page"
         rel="noopener noreferrer"
@@ -18,16 +24,21 @@ export function Nav() {
         Documentation
       </Item>
       <Item
-        href="https://github.com/react-boilerplate/react-boilerplate-cra-template"
+        href="https://github.com/patrickkreuzenort"
         target="_blank"
-        title="Github Page"
+        title="Github Profile"
         rel="noopener noreferrer"
       >
         <GithubIcon />
         Github
       </Item>
-      <Item>
-        <Link to="/calendar">Calendar</Link>
+      <Item
+        href="http://patrykbindacz.pl/"
+        target="_blank"
+        title="My personal page"
+        rel="noopener noreferrer"
+      >
+        Personal page&blog
       </Item>
     </Wrapper>
   );
@@ -36,6 +47,7 @@ export function Nav() {
 const Wrapper = styled.nav`
   display: flex;
   margin-right: -1rem;
+
 `;
 
 const Item = styled.a`

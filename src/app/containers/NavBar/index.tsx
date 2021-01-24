@@ -23,7 +23,7 @@ const Wrapper = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: ${p => p.theme.background};
+  background-color: #222222;
   z-index: 2;
 
   @supports (backdrop-filter: blur(10px)) {

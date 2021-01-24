@@ -12,7 +12,8 @@ import { selectCountPlannerMonth, selectCountPlannerYear } from '../selectors';
 import { 
     clearEmptyCells, 
     insertRemainingCells,
-    insertAllRemainingCells
+    insertAllRemainingCells,
+    specifyNumber
 } from '../slice';
 
 export function Calendar() : JSX.Element {
@@ -38,6 +39,12 @@ export function Calendar() : JSX.Element {
     // 3 - funtion to insert all remaing cells in all remaining cells
     useEffect(() => {
         dispatch(insertAllRemainingCells());
+    },[month]);
+
+        
+    // 4 - funtion to specifyNumber
+    useEffect(() => {
+        dispatch(specifyNumber());
     },[month]);
     
 
