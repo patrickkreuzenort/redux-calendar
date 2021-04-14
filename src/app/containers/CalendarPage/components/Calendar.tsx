@@ -26,25 +26,33 @@ export function Calendar() : JSX.Element {
 
     // 1 - function to clear cells after month change
     useEffect(() => {
+        console.log('clearEmptyCells');
         dispatch(clearEmptyCells());
+        console.log('clearEmptyCells finished');
     },[month]);
 
     
     // 2 - funtion to insert remaining cells in first row
     useEffect(() => {
+        console.log('insertRemainingCells');
         dispatch(insertRemainingCells());
+        console.log('insertRemainingCells finished');
     },[month]);
     
     
     // 3 - funtion to insert all remaing cells in all remaining cells
     useEffect(() => {
+        console.log('insertAllRemainingCells');
         dispatch(insertAllRemainingCells());
+        console.log('insertAllRemainingCells finished');
     },[month]);
 
         
     // 4 - funtion to specifyNumber
     useEffect(() => {
+        console.log('specifyNumber');
         dispatch(specifyNumber());
+        console.log('specifyNumber finished');
     },[month]);
     
 
